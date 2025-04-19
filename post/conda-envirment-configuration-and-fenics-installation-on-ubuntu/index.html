@@ -1,0 +1,265 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Conda envirment configuration and FEniCS/FEniCSx installation on Ubuntu | Computational Mechanics</title>
+<link rel="shortcut icon" href="https://NathanLZC.github.io/favicon.ico?v=1745096806920">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://NathanLZC.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Conda envirment configuration and FEniCS/FEniCSx installation on Ubuntu | Computational Mechanics - Atom Feed" href="https://NathanLZC.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="
+In this blog post, I provide the steps and code for my personal installation of the Conda environment, along with metho..." />
+    <meta name="keywords" content="Conda environment setup,Ubuntu,Linux" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://NathanLZC.github.io">
+  <img class="avatar" src="https://NathanLZC.github.io/images/avatar.png?v=1745096806920" alt="">
+  </a>
+  <h1 class="site-title">
+    Computational Mechanics
+  </h1>
+  <p class="site-description">
+    Contact Mechanics/Boundary element method/Fracture Mechanics
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          Homepage
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          Archived files
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          Tags
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          About
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/NathanLZC" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/ZichenL51087753" target="_blank">
+          <i class="ri-twitter-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Conda envirment configuration and FEniCS/FEniCSx installation on Ubuntu
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-11-02
+              </span>
+              <span>
+                6 min read
+              </span>
+              
+                <a href="https://NathanLZC.github.io/tag/U8eORNKof/" class="post-tag">
+                  # Conda environment setup
+                </a>
+              
+                <a href="https://NathanLZC.github.io/tag/7UT7QYxkz/" class="post-tag">
+                  # Ubuntu
+                </a>
+              
+                <a href="https://NathanLZC.github.io/tag/_QkK46Xcd/" class="post-tag">
+                  # Linux
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://NathanLZC.github.io/post-images/conda-envirment-configuration-and-fenics-installation-on-ubuntu.png" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <blockquote>
+<p>In this blog post, I provide the steps and code for my personal installation of the Conda environment, along with methods for installing FEniCS and FEniCSx, as well as my personal understanding of the installation process.</p>
+</blockquote>
+<!-- more -->
+<p>💻The operation below were conducted on a laptop equipped with an Intel 11th Gen Intel(R) Core(TM) i7-11800H @ 2.30GHz 2.30 GHz CPU and 16.0 GB of RAM. The operating system is Ubuntu 22.04 installed on Virtual Box 7 based on Windows 10 Professional, with 8192MB of memory and 8 processors allocated, and 64MB of video memory.</p>
+<h2 id="git-installation1️⃣">Git installation1️⃣</h2>
+<p>First, we need to make sure that we already installed git. Git is a very useful tool in verson control, and it is a basis for Github. Normally, new version Ubuntu comes with Git installed. But we can also use following code to make it sure.</p>
+<p><code>sudo apt-get install git</code></p>
+<h2 id="conda-installation2️⃣">Conda installation2️⃣</h2>
+<p>The next step is to install anaconda. As instruction in README.md, we can also use miniconda or other preferred Anaconda-like variants. We can get the newest anaconda by <a href="https://www.anaconda.com/download">[link]</a>.</p>
+<p>Then we can copy the file Anaconda3-2023.09-0-Linux-x86_64.sh to the root directory(/home/zli2022). Then open a terminal and enter the following command:</p>
+<p><code>bash Anaconda3-2023.09-0-Linux-x86_64.sh</code></p>
+<p>After the installation is complete, enter in the terminal:</p>
+<p><code>sudo gedit ~/.bashrc</code></p>
+<p>Add at the end of the pop-up file:</p>
+<p><code>export PATH=&quot;/home/zli2022/anaconda3/bin:$PATH&quot;</code></p>
+<p>Save the file, close the file and enter in the terminal:</p>
+<p><code>source ~/.bashrc</code></p>
+<p>Till now, we finished intalling anaconda3 in linux. After restarting the terminal, the word (base) will appear before the user name. This is because the base environment of anaconda has started automatically. We can use the following command to turn off the base environment automatic startup.</p>
+<p><strong>Always turn off base environment auto-start</strong><br>
+<code>conda config --set auto_activate_base false</code></p>
+<p><strong>Only close the base environment that was started this time (in fact, any environment that has been entered can be closed)</strong></p>
+<p><code>conda deactivate</code></p>
+<p>We can create our conda environments and customize them:</p>
+<p><strong>Create conda envionment with file path</strong></p>
+<p><code>conda create --prefix /home/zli2022/DDFenics/ddfenics</code></p>
+<p>Then we can activate the conda environment:</p>
+<p><code>conda activate /home/zli2022/DDFenics/ddfenics</code></p>
+<p>We  can also install ipykernel and meshio package by following commands:</p>
+<p><code>conda install ipykernel</code><br>
+<code>pip install meshio</code></p>
+<p><strong>Create conda envionment on root directory</strong></p>
+<p><code>conda create -n fenics-env</code><br>
+<code>conda activate fenics-env</code></p>
+<h2 id="installation-of-fenics3️⃣">Installation of FEniCS3️⃣</h2>
+<p>The latest version of legacy FEniCS (2019.1.0) was released in April 2019.[<a href="https://fenicsproject.org/">ref1</a>]</p>
+<p>In other blog posts on our website (<a href="https://nathanlzc.github.io/post/gradient-damage-models-as-phase-field-models-of-brittle-fracture/">Gradient damage models as phase-field models of brittle fracture</a>), we use FEniCS 2018.1.0, but in the Coupled Problems and Data-driven Mechanics projects, we have used FEniCSx. Discussion about this new version is in the next section.</p>
+<p>When running notebooks (.ipynb), we can use a pre-configured Conda environment. For instance, in VS Code (already installed in Ubuntu), by selecting different kernel cores, we can further customize our Conda environment using the following code:</p>
+<p><code>conda install -c conda-forge fenics</code></p>
+<p>Or we can directly install by apt(Ubuntu):</p>
+<p><code>sudo apt-get install software-properties-common</code><br>
+<code>sudo add-apt-repository ppa:fenics-packages/fenics</code><br>
+<code>sudo apt-get update</code><br>
+<code>sudo apt-get install --no-install-recommends fenics</code><br>
+<code>sudo apt-get dist-upgrade</code></p>
+<p>In 2018, work started on FEniCSx: the new version of the FEniCS library. FEniCSx has a number of major improvements over the legacy library, including support for a wide range of cell types and elements, memory parallelisation, and complex number support, as well as a large number of improvements to the overall library design. FEniCSx is comprised of the libraries UFL, Basix, FFCx and DOLFINx. The latest version of FEniCSx (0.7) was released in October 2023.[<a href="https://fenicsproject.org/">ref1</a>]</p>
+<h2 id="installation-of-fenicsx4️⃣">Installation of FEniCSx4️⃣</h2>
+<p>FEniCSx is a popular open-source computing platform for solving partial differential equations (PDEs). FEniCSx enables users to quickly translate scientific models into efficient finite element code. With the high-level Python and C++ interfaces to FEniCSx, it is easy to get started, but FEniCSx offers also powerful capabilities for more experienced programmers. FEniCSx runs on a multitude of platforms ranging from laptops to high-performance clusters.[<a href="https://fenicsproject.org/">ref1</a>]</p>
+<p>It is easier to install FEniCSx by Binary distributions (container images, conda, Ubuntu packages etc.).[<a href="https://github.com/FEniCS/dolfinx#installation">ref2</a>]</p>
+<p><strong>Conda</strong><br>
+To install the latest stable release of the Python interface, with pyvista support for visualisation, using conda:</p>
+<p><code>conda create -n fenicsx-env</code><br>
+<code>conda activate fenicsx-env</code><br>
+<code>conda install -c conda-forge fenics-dolfinx mpich pyvista</code></p>
+<p>Please remind yourself before we install FEniCSx in this way, that we need to make sure we already have the latest version conda, we can easily check by:</p>
+<p><code>conda deactivate</code><br>
+<code>conda update conda</code></p>
+<p><strong>Ubuntu packages</strong></p>
+<p>The Ubuntu PPA contains binary packages of the FEniCSx components. To install:</p>
+<p><code>add-apt-repository ppa:fenics-packages/fenics</code><br>
+<code>apt update</code><br>
+<code>apt install fenicsx</code></p>
+<h2 id="initialization-of-notebook-on-linux5️⃣">Initialization of notebook on Linux5️⃣</h2>
+<p>We can use Jupyter-lab on Linux for compiling .ipynb file.</p>
+<p><code>conda install -c conda-forge jupyterlab</code></p>
+<p>Then we can run our notebook by:</p>
+<p><code>jupyter-lab VI-notes.ipynb</code></p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#git-installation1%EF%B8%8F%E2%83%A3">Git installation1️⃣</a></li>
+<li><a href="#conda-installation2%EF%B8%8F%E2%83%A3">Conda installation2️⃣</a></li>
+<li><a href="#installation-of-fenics3%EF%B8%8F%E2%83%A3">Installation of FEniCS3️⃣</a></li>
+<li><a href="#installation-of-fenicsx4%EF%B8%8F%E2%83%A3">Installation of FEniCSx4️⃣</a></li>
+<li><a href="#initialization-of-notebook-on-linux5%EF%B8%8F%E2%83%A3">Initialization of notebook on Linux5️⃣</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://NathanLZC.github.io/post/domain-decomposition-and-iterative-solver/">
+              <h3 class="post-title">
+                Domain Decomposition and iterative Solvers - 3
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://NathanLZC.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

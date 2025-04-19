@@ -1,0 +1,180 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Welcome to Zichen Li&#39;s digital space! | Computational Mechanics</title>
+<link rel="shortcut icon" href="https://NathanLZC.github.io/favicon.ico?v=1745096806920">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://NathanLZC.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Welcome to Zichen Li&#39;s digital space! | Computational Mechanics - Atom Feed" href="https://NathanLZC.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="👏  Welcome to my personal blog, a dynamic space where I delve into the intricacies of various courses, offering my uniq..." />
+    <meta name="keywords" content="Gridea" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://NathanLZC.github.io">
+  <img class="avatar" src="https://NathanLZC.github.io/images/avatar.png?v=1745096806920" alt="">
+  </a>
+  <h1 class="site-title">
+    Computational Mechanics
+  </h1>
+  <p class="site-description">
+    Contact Mechanics/Boundary element method/Fracture Mechanics
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          Homepage
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          Archived files
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          Tags
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          About
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/NathanLZC" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/ZichenL51087753" target="_blank">
+          <i class="ri-twitter-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Welcome to Zichen Li&#39;s digital space!
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-08-22
+              </span>
+              <span>
+                2 min read
+              </span>
+              
+                <a href="https://NathanLZC.github.io/tag/l2hpCnxKG/" class="post-tag">
+                  # Gridea
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://NathanLZC.github.io/post-images/hello-gridea.png" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <p>👏  Welcome to my personal blog, a dynamic space where I delve into the intricacies of various courses, offering my unique perspectives and interpretations.<br>
+✍️  This platform is not only a repository of essential concepts but also a reflection of my ongoing learning journey.</p>
+<!-- more -->
+<p><a href="https://github.com/getgridea/gridea">Github</a><br>
+<a href="https://twitter.com/ZichenL51087753">Twitter</a><br>
+Email: zichen.li@eleves.ec-nantes.fr</p>
+<p>📝Currently under construction, this blog is set to evolve continuously with regular updates. I earnestly invite experts, mentors, and peers from my field to engage in insightful discussions and provide guidance. Your contributions and insights are invaluable to this evolving digital canvas.</p>
+<p>🌎For those who wish to connect, collaborate, or provide feedback, I am reachable through various channels. Feel free to contact me via GitHub, email, or Twitter. I am open to engaging discussions and potential collaborations.</p>
+<p>💻Additionally, I am actively seeking opportunities for a Master's internship and Ph.D. positions. Networking and sharing ideas through this platform might open new avenues in these endeavors.</p>
+<p>📋 Stay tuned for more updates, and thank you for visiting my blog!</p>
+<p>👨‍💻Know more about me, please click <a href="https://nathanlzc.github.io/post/about/">[Link]</a>.</p>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://NathanLZC.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

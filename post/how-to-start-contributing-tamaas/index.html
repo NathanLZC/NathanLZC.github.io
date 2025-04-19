@@ -1,0 +1,348 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How to start contributing Tamaas | Computational Mechanics</title>
+<link rel="shortcut icon" href="https://NathanLZC.github.io/favicon.ico?v=1745096806920">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://NathanLZC.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="How to start contributing Tamaas | Computational Mechanics - Atom Feed" href="https://NathanLZC.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="
+Part of my master thesis work is to contribute Tamaas created by Lucas Frérot
+
+💻 We plan to contribute our solver to o..." />
+    <meta name="keywords" content="Contact mechanics,tamaas,BEM,Linux" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://NathanLZC.github.io">
+  <img class="avatar" src="https://NathanLZC.github.io/images/avatar.png?v=1745096806920" alt="">
+  </a>
+  <h1 class="site-title">
+    Computational Mechanics
+  </h1>
+  <p class="site-description">
+    Contact Mechanics/Boundary element method/Fracture Mechanics
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          Homepage
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          Archived files
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          Tags
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          About
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/NathanLZC" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/ZichenL51087753" target="_blank">
+          <i class="ri-twitter-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              How to start contributing Tamaas
+            </h2>
+            <div class="post-info">
+              <span>
+                2024-04-29
+              </span>
+              <span>
+                7 min read
+              </span>
+              
+                <a href="https://NathanLZC.github.io/tag/54Xss95OP/" class="post-tag">
+                  # Contact mechanics
+                </a>
+              
+                <a href="https://NathanLZC.github.io/tag/aWDCl0Rr9/" class="post-tag">
+                  # tamaas
+                </a>
+              
+                <a href="https://NathanLZC.github.io/tag/37uwOo38y/" class="post-tag">
+                  # BEM
+                </a>
+              
+                <a href="https://NathanLZC.github.io/tag/_QkK46Xcd/" class="post-tag">
+                  # Linux
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://NathanLZC.github.io/post-images/how-to-start-contributing-tamaas.png" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <blockquote>
+<p>Part of my master thesis work is to contribute Tamaas created by Lucas Frérot</p>
+</blockquote>
+<p>💻 We plan to contribute our solver to open-source <a href="https://tamaas.readthedocs.io/en/latest/">Tamaas project</a> by creating <a href="https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html#new-merge-request-from-a-fork">merge requests</a>.</p>
+<p>We can start to learn how to play with git, especially how to merge branches, we have installed GitLab Workflow extension for <a href="https://docs.gitlab.com/ee/editor_extensions/visual_studio_code/">VS Code</a>.</p>
+<p>We also installed blender, we will try to learn this rendering skill as well.</p>
+<p>To initiate our work on GitLab, we follow the steps in [3]. We have been added in Tamaas project as developer, so we plan to play with our branch. Here we first clone from <strong>master</strong> branch of Tamaas[1].</p>
+<h4 id="useful-commands">🎫 Useful commands</h4>
+<p>Some useful commands are listed:</p>
+<pre><code class="language-bash">git remote set-url origin git@gitlab.com:tamaas/tamaas.git
+git fetch --all
+git remote --verbose
+git checkout -b maxwell_viscoelastic-branch 
+git branch -a
+</code></pre>
+<h5 id="recommended-workflow">Recommended Workflow</h5>
+<p>Ensure your local <code>master</code> branch is up to date, and create new feature branches from the latest <code>master</code> branch:</p>
+<ol>
+<li><strong>Fetch All Remote Updates</strong></li>
+</ol>
+<pre><code class="language-bash">git fetch --all
+</code></pre>
+<p><em>If you want to temporarily save your local changes before merging:</em></p>
+<pre><code class="language-bash">git stash
+</code></pre>
+<ol start="2">
+<li><strong>Merge Updates into Local <code>master</code></strong></li>
+</ol>
+<pre><code class="language-bash">git checkout master
+git merge origin/master
+</code></pre>
+<ol start="3">
+<li><strong>Switch to Your Feature Branch</strong></li>
+</ol>
+<pre><code class="language-bash">git checkout mybranch
+git merge master  # For existing branches
+</code></pre>
+<ol start="4">
+<li><strong>Alternatively, Create a New Feature Branch</strong></li>
+</ol>
+<pre><code class="language-bash">git checkout -b newbranch
+git merge master  # For existing branches
+</code></pre>
+<p><em>If you stashed your changes earlier, apply them back to your feature branch:</em></p>
+<pre><code class="language-bash">git stash pop
+</code></pre>
+<p><em>Resolve conflicts:</em></p>
+<ul>
+<li>Resolve manually</li>
+<li>Mark as resolved:</li>
+</ul>
+<pre><code class="language-bash">git add &lt;resolved-files&gt;
+git commit -m &quot;Resolved merge conflicts&quot;
+</code></pre>
+<h5 id="summary">Summary</h5>
+<p>Make sure your local <code>master</code> branch is synchronized with the remote <code>master</code> branch, then create or update your feature branches based on the latest <code>master</code> to ensure your development branch includes the most recent changes.</p>
+<h4 id="configure-gitlab">👩‍💻 Configure GitLab</h4>
+<p>Before everything started, we should deal with SSH:</p>
+<pre><code class="language-bash">(base)  lizichen@lizichendeMacBook-Air  ~/Tamaas/tamaas   maxwell_viscoelastic-branch  cat ~/.ssh/id_rsa.pub 
+</code></pre>
+<p>And add this public key to our GitLab webpage.(Just like what we have done for Github)</p>
+<p>Then we will be informed to set a passphrase for this key by typing:</p>
+<pre><code class="language-bash">(base)  lizichen@lizichendeMacBook-Air  ~/Tamaas/tamaas   maxwell_viscoelastic-branch  git fetch 
+</code></pre>
+<p>With the help of ssh-agent(integrated on macOS since Leopard, version 10.5 in 2007)[4], we don't need to type our passphrase every time when we push local to remote.</p>
+<p>Start the SSH agent and add our private key to the SSH agent:</p>
+<pre><code class="language-bash">eval &quot;$(ssh-agent -s)&quot;
+ssh-add ~/.ssh/id_rsa
+</code></pre>
+<p>List all keys loaded into ssh-agent:</p>
+<pre><code class="language-bash">ssh-add -l
+</code></pre>
+<p>If everything is set up correctly, we will see a welcome message stating that our SSH connection is now set up by typing:</p>
+<pre><code class="language-bash">ssh -T git@gitlab.com
+</code></pre>
+<p><strong>origin</strong> is the default name of the remote repository. Establish a tracking relationship between the local branch and the remote branch, so that subsequent git push and git pull commands on this branch do not need to specify the remote repository name and branch name. The following command is usually used when we push a new branch to the remote repository for the first time to set up this tracking relationship:</p>
+<pre><code class="language-bash">git remote set-url origin git@gitlab.com:tamaas/tamaas.git
+</code></pre>
+<h5 id="deal-with-branches">Deal with branches</h5>
+<p>When we talk about git, we should be clear with local and remote repo, for GitLab, we can easily create a New branch by clicking <strong>New branch</strong> on GitLab webpage, or use command:</p>
+<pre><code class="language-bash">(base)  lizichen@lizichendeMacBook-Air  ~/Tamaas/tamaas   master  git checkout -b maxwell_viscoelastic-branch               
+Switched to a new branch 'maxwell_viscoelastic-branch'
+</code></pre>
+<p>If we already link our local repo and remote repo with SSH, then a new branch will be automatic generated when we push our local repo to remote:</p>
+<pre><code class="language-bash">git push -u origin maxwell_viscoelastic-branch
+</code></pre>
+<p>When we need to develop on our branch, we can just switch to this branch using the following command:</p>
+<pre><code class="language-bash">git checkout maxwell_viscoelastic-branch
+</code></pre>
+<h5 id="deal-with-potential-conflict">Deal with potential conflict</h5>
+<p>Additionally, using <code>git stash</code> is a handy way to temporarily shelve (or stash) changes you've made to your working directory so you can work on something else, and then come back and re-apply them later on. Here's a step-by-step guide on how you can use this feature in conjunction with merging:</p>
+<ol>
+<li>
+<p><strong>Stash Your Changes</strong>:</p>
+<ul>
+<li>Before merging, make sure you're on the branch where you've made your changes. If you have any uncommitted changes that you don't want to commit yet, you can stash them.</li>
+<li>Run <code>git stash</code> to stash your changes. This command saves your modifications and reverts the working directory to match the HEAD commit.</li>
+<li>Optionally, you can use <code>git stash push -m &quot;Your message&quot;</code> to add a description to your stash for easier identification later.</li>
+</ul>
+</li>
+<li>
+<p><strong>Merge the Changes</strong>:</p>
+<ul>
+<li>Switch to the branch where you want to merge the changes. For instance, if you're merging into your current branch from <code>master</code>, you'd stay on your current branch.</li>
+<li>Run <code>git merge master</code> to merge changes from the master branch into your current branch. Resolve any conflicts if they arise.</li>
+</ul>
+</li>
+<li>
+<p><strong>Reapply Your Stashed Changes</strong>:</p>
+<ul>
+<li>Once the merge is complete and you're ready to get back to your work, run <code>git stash pop</code>. This command applies the stashed changes back to your working directory and removes them from the stash list.</li>
+<li>If you want to keep the stash in your stash list, you can use <code>git stash apply</code> instead. This re-applies the changes but does not remove them from the stash.</li>
+</ul>
+</li>
+<li>
+<p><strong>Handle Merge Conflicts</strong>:</p>
+<ul>
+<li>If your stashed changes conflict with the changes from the merge, you'll need to resolve these conflicts manually. Git will prompt you to fix the conflicts before completing the <code>git stash pop</code>.</li>
+<li>After resolving any conflicts, if you used <code>git stash pop</code>, make sure to commit these resolved changes to finalize the merge process.</li>
+</ul>
+</li>
+</ol>
+<p>Using <code>git stash</code> is particularly useful when you need to quickly switch contexts. For example, if you do not want to discard changes before merging, and don't want to create a commit either, you can <code>git stash</code> before the merge, <code>git merge master</code> then <code>git stash pop</code> to re-apply your old changes. It allows for a clean workflow without losing any of your work.</p>
+<h4 id="reference">Reference:</h4>
+<p>[1] https://tamaas.readthedocs.io/en/latest/</p>
+<p>[2] https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html#new-merge-request-from-a-fork</p>
+<p>[3] https://yang-xijie.github.io/LECTURE/Git/git/#_10</p>
+<p>[4] https://en.wikipedia.org/wiki/Ssh-agent</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#useful-commands">🎫 Useful commands</a>
+<ul>
+<li><a href="#recommended-workflow">Recommended Workflow</a></li>
+<li><a href="#summary">Summary</a></li>
+</ul>
+</li>
+<li><a href="#configure-gitlab">👩‍💻 Configure GitLab</a>
+<ul>
+<li><a href="#deal-with-branches">Deal with branches</a></li>
+<li><a href="#deal-with-potential-conflict">Deal with potential conflict</a></li>
+</ul>
+</li>
+<li><a href="#reference">Reference:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://NathanLZC.github.io/post/art-of-modeling-configurational-mechanics/">
+              <h3 class="post-title">
+                Art of modeling - Configurational Mechanics
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://NathanLZC.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
